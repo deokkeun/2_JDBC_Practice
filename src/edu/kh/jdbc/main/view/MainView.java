@@ -67,7 +67,7 @@ public class MainView {
 					System.out.println("0. 로그아웃");
 					System.out.println("99. 프로그램 종료");
 					
-					System.out.println(" \n 메뉴 선택 : ");
+					System.out.print(" \n 메뉴 선택 : ");
 					input = sc.nextInt();
 					sc.nextLine();
 					
