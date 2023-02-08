@@ -11,6 +11,12 @@ public class Member {
 	private String secessionFlag; // 탈퇴여부
 	
 	public Member() {}
+	
+	public Member(String memberId, String memberName, String memberGender) {
+		this.memberId = memberId;
+		this.memberName = memberName;
+		this.memberGender = memberGender;
+	}
 
 	public Member(String memberId, String memberPw, String memberName, String memberGender) {
 		this.memberId = memberId;
