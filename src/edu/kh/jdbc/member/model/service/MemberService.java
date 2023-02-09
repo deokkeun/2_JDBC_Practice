@@ -1,7 +1,6 @@
 package edu.kh.jdbc.member.model.service;
 
-import static edu.kh.jdbc.common.JDBCTemplate.close;
-import static edu.kh.jdbc.common.JDBCTemplate.getConnection;
+import static edu.kh.jdbc.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -77,6 +76,21 @@ public class MemberService {
 		close(conn);
 		
 		return result;
+	}
+
+
+	public int secession(Member loginMember, String pw) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = dao.secession(conn, loginMember, pw);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return 0;
 	}
 
 }

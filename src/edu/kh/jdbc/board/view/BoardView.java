@@ -10,11 +10,7 @@ public class BoardView {
 		
 		
 		
-		selectAllBoard();
-		selectBoard();
-		
-		
-		
+
 		
 	}
 	

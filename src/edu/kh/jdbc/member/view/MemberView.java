@@ -52,7 +52,7 @@ public class MemberView {
 			case 2: selectAll(); break;
 			case 3: updateMember(loginMember); break;
 			case 4: updatePw(loginMember); break;
-			case 5: //secession(); break;
+			case 5: secession(loginMember); break;
 			default : System.out.println("메뉴에 작성된 번호만 입력해주세요");
 
 			}
@@ -62,6 +62,47 @@ public class MemberView {
 		
 	}
 
+	
+	
+	
+	private void secession(Member loginMember) {
+		
+		try {
+			
+			System.out.println("<회원탈퇴>");
+			System.out.println("정말 회원 탈퇴 하시겠습니까? (Y/N)");
+			String input = sc.next().toUpperCase();
+			
+			if(input.equals("Y")) {
+				
+				System.out.println("탈퇴 하시려면 비밀번호를 입력해주세요");
+				String pw = sc.next();
+				int dup = memDupPw(pw);
+				
+				if(dup == 1) {
+					int result = memberService.secession(loginMember, pw);
+					System.out.println("회원 탈퇴 완료");
+				} else {
+					System.out.println("회원 탈퇴중 오류가 발생했습니다.");
+				}
+				
+				
+			} else if(input.equals("N")) {
+				System.out.println("회원 탈퇴를 하지 않고 이전의 화면으로 돌아갑니다.");
+			} else {
+				System.out.println("(Y / N) 둘중에 하나만 입력해주세요");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+	
+	
+	
 	private void updatePw(Member loginMember) {
 		this.loginMember = loginMember;
 		
